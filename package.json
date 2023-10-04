@@ -1,0 +1,49 @@
+{
+  "name": "express-ts-template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/.bin/tsc",
+    "start": "./node_modules/.bin/tsc && node ./dist/index.js",
+    "dev": "nodemon src/index.ts",
+    "schemas:openapi": "swagger-jsdoc -d src/routes/definition.yaml src/routes/*.ts \\\"src/routes/!(definition).yaml\\\" -o src/common/schemas/openapi.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@shopify/shopify-api": "^7.7.0",
+    "@types/express": "^4.17.18",
+    "@types/node": "^18.14.6",
+    "@types/swagger-jsdoc": "^6.0.1",
+    "@types/swagger-ui-express": "^4.1.4",
+    "@typescript-eslint/eslint-plugin": "^6.7.4",
+    "@typescript-eslint/parser": "^6.7.4",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "eslint": "^8.50.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-standard-with-typescript": "^39.1.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-n": "^16.1.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "nodemon": "^3.0.1",
+    "prettier": "3.0.3",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.10",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "express-list-middleware": "^1.0.1",
+    "pino": "^8.15.4",
+    "pino-pretty": "^10.2.2",
+    "ts-node": "^10.9.1"
+  }
+}

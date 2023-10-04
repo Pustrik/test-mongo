@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "outDir": "./dist",
+    "removeComments": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "declaration": false,
+    "sourceMap": true,
+    "inlineSources": true,
+    "stripInternal": true,
+    "incremental": true,
+    "skipLibCheck": true,
+    "inlineSourceMap": false,
+    "noEmit": false,
+    "baseUrl": "./",
+//    "paths": {
+//      "@src/*": ["src/*"],
+//      "@common/*": ["src/common/*"]
+//    }
+  },
+}
