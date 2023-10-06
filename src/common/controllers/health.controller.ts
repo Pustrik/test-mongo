@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 import { constants } from 'http2';
-import AppService from '../services/app.service';
+import HealthService from '../services/health.service';
 
-export default class AppController {
-  constructor(private readonly appService: AppService) {}
+export default class HealthController {
+  constructor(private readonly appService: HealthService) {}
 
   healthCheck = (req: Request, res: Response) => {
     return res

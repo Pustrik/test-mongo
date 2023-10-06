@@ -1,4 +1,4 @@
-export default class AppService {
+export default class HealthService {
   constructor() {}
 
   healthCheck = () => {

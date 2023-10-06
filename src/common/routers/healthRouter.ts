@@ -1,10 +1,10 @@
 import express from 'express';
 import 'express-async-errors';
-import AppController from '../controllers/app.controller';
-import AppService from '../services/app.service';
+import HealthController from '../controllers/health.controller';
+import HealthService from '../services/health.service';
 
-const appRouter = express.Router();
-const appController = new AppController(new AppService());
+const healthRouter = express.Router();
+const appController = new HealthController(new HealthService());
 
 /**
  * @openapi
@@ -17,7 +17,7 @@ const appController = new AppController(new AppService());
  *       200:
  *         description: App is up and running
  */
-appRouter.get('/health', appController.healthCheck);
+healthRouter.get('/health', appController.healthCheck);
 
 /**
  * @openapi
@@ -30,6 +30,6 @@ appRouter.get('/health', appController.healthCheck);
  *       200:
  *         description: App is up and running
  */
-appRouter.get('/favicon', appController.favicon);
+healthRouter.get('/favicon', appController.favicon);
 
-export default appRouter;
+export default healthRouter;

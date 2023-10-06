@@ -6,8 +6,15 @@ export class RequestLogger {
   }
 
   private requestLogger = (req: Request, res: Response, next: NextFunction) => {
-    logger.info(`Method:: ${req.method} url:: ${req.url}`);
-    logger.info(`Body:: ${JSON.stringify(req.body)}`);
+    logger.info(
+      {
+        action: `Method:: ${req.method} URL:: ${req.url}`,
+        query: req.query,
+        params: req.params,
+        body: req.body,
+      },
+      'Request::',
+    );
     next();
   };
 }

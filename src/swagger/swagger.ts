@@ -24,7 +24,7 @@ function swaggerDocs(app, host, port) {
     res.send(swaggerSpec);
   });
 
-  logger.info(`Docs available at ${host}:${port}/api`);
+  logger.info(`Docs available at ${host}${port}/api`);
 }
 
 export default swaggerDocs;
