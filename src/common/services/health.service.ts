@@ -1,3 +1,5 @@
+import dotenv from 'dotenv';
+dotenv.config();
 export default class HealthService {
   constructor() {}
 
@@ -6,6 +8,7 @@ export default class HealthService {
   };
 
   favicon = () => {
-    return {};
+    const a = process.env.MONGO_URI;
+    return { a };
   };
 }

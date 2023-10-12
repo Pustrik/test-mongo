@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "ESNext",
     "outDir": "./dist",
     "removeComments": true,
     "esModuleInterop": true,
@@ -16,9 +16,7 @@
     "inlineSourceMap": false,
     "noEmit": false,
     "baseUrl": "./",
-//    "paths": {
-//      "@src/*": ["src/*"],
-//      "@common/*": ["src/common/*"]
-//    }
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
 }

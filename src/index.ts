@@ -10,13 +10,15 @@ import {
 } from './common/middlewares';
 import SupportHandler from './common/middlewares/support.handler';
 import appRouter from './routes';
+import ConnectMongo from './common/mongo/connect';
 
 dotenv.config();
 
 const bootstrap = () => {
   const { API_PORT, API_HOST } = process.env;
-  const app = express();
+  new ConnectMongo().connect();
 
+  const app = express();
   new SupportHandler(app);
   new ResponseHandler(app);
   new RequestLogger(app);

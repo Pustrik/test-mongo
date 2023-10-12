@@ -1,6 +1,6 @@
 import { Express, NextFunction, Request, Response } from 'express';
 import logger from '../utils/logger.util';
-import { CustomException } from '../exceptions';
+import { ConflictException, CustomException } from '../exceptions';
 import { messageUtil } from '../utils/messages.util';
 
 export class ErrorHandler {
@@ -15,8 +15,12 @@ export class ErrorHandler {
     res: Response,
     next: NextFunction,
   ) => {
+    if (error.name === 'MongoServerError' && error['code'] === 11000)
+      error = new ConflictException(
+        `Must be unique: ${Object.keys(error['keyPattern'])}`,
+      );
     if (!(error instanceof CustomException)) {
-      logger.error(error, 'Server error');
+      logger.error(error, messageUtil.exceptions.internal);
       return next(error);
     }
     logger.error(

@@ -2,25 +2,26 @@
 version: '3.9'
 
 services:
-  database:
-    container_name: postgres-container
-    image: postgres:14.0-alpine
-    restart: always
+  app:
+    container_name: app-container
+    build: .
+    ports:
+      - ${API_PORT}:${API_PORT}
     environment:
-      - POSTGRES_USER=${DB_USERNAME}
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
-      - POSTGRES_DB=${DB_NAME}
-      - POSTGRES_HOST=${DB_HOST}
+      MONGO_URI: mongodb://mongo:${MONGO_PORT}/mydatabase
+    depends_on:
+      - mongo
     volumes:
-      - ./pg-data:/var/lib/postgresql/data
+      - .:/app
+      - /app/node_modules
+
+  mongo:
+    container_name: mongo-container
+    image: "mongo:6"
     ports:
-      - ${DB_PORT}:${DB_PORT}
-  cache:
-    container_name: redis-container
-    image: redis:6.2-alpine
-    restart: always
-    ports:
-      - ${REDIS_PORT}:${REDIS_PORT}
-    command: redis-server --save 20 1 --loglevel warning --requirepass 123456
+      - ${MONGO_PORT}:${MONGO_PORT}
     volumes:
-      - ./cache:/data
+      - mongodata:/data/db
+
+volumes:
+  mongodata:
