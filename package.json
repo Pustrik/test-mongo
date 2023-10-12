@@ -6,8 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./node_modules/.bin/tsc",
     "start": "./node_modules/.bin/tsc && node ./dist/index.js",
-    "dev": "nodemon src/index.ts",
-    "schemas:openapi": "swagger-jsdoc -d src/routes/definition.yaml src/routes/*.ts \\\\\\\"src/routes/!(definition).yaml\\\\\\\" -o src/common/mongo/schemas/openapi.json",
+    "dev": "nodemon backend/index.ts",
+    "schemas:openapi": "swagger-jsdoc -d backend/routes/definition.yaml backend/routes/*.ts \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"backend/routes/!(definition).yaml\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" -o backend/common/mongo/schemas/openapi.json",
     "start:docker": "sudo docker compose down && sudo docker compose up -d"
   },
   "keywords": [],

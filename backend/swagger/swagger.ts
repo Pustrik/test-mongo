@@ -12,7 +12,7 @@ const options: swaggerJsdoc.Options = {
     components: {},
     security: [],
   },
-  apis: ['./src/common/routers/*.ts', './src/common/schemas/*.ts'],
+  apis: ['./backend/common/routers/*.ts', './backend/common/schemas/*.ts'],
 };
 
 const swaggerSpec = swaggerJsdoc(options);
